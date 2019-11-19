@@ -4,4 +4,48 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Hello World</h1>
+<h1>Moives</h1>
+<form method ="post">
+    <input type="text" name="search"/>
+    <input type="submit" value="Search"/>
+</form>
+@foreach (Movie movie in Model.movies)
+{
+    <div class="movie-entry">
+        <h2>@movie.Title</h2>
+        @if (movie.MPAA_Rating != null) 
+        { 
+            <div class="MPAA">
+            Rated: @movie.MPAA_Rating
+            </div>
+        }
+        @if (movie.Major_Genre != null)
+        {
+            <div class="genre">
+                Gengre: @movie.Major_Genre;
+            </div>
+        }
+        @if(movie.Director!=null) 
+        {
+        <div class="Director">
+            Directed by: @movie.Director
+        </div>
+        }
+        <div>
+            @if (movie.IMDB_Rating != null)
+            {
+                <div class="ratings">
+                    <span>IMDB</span>
+                    @movie.IMDB_Rating
+                </div>
+            }
+            @if (movie.Rotten_Tomatoes_Rating != null)
+            {
+                <div class="ratings">
+                    <span>Rotten Tomatoes</span>
+                    @movie.Rotten_Tomatoes_Rating
+                </div>
+            }
+        </div>
+    </div>
+}

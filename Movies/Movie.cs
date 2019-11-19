@@ -9,6 +9,8 @@ namespace Movies
     {
         public string Title { get; set; }
 
+        public string Director { get; set; }
+
         public string MPAA_Rating { get; set; }
 
         public string Major_Genre { get; set; }

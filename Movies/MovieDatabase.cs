@@ -27,5 +27,19 @@ namespace Movies
         }
 
         public List<Movie> All { get { return movies; } }
+
+        public List<Movie> Search(string term)
+        {
+            List<Movie> results = new List<Movie>();
+            foreach(Movie movie in movies)
+            {
+                if (movie.Title.Contains(term, StringComparison.OrdinalIgnoreCase))
+                {
+                    results.Add(movie);
+                }
+            }
+
+            return results;
+        }
     }
 }
